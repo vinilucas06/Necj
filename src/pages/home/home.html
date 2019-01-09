@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="primary" (click)="map.centerLocation()">
+        <ion-icon name="md-locate"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="map-wrapper">
+    <map #map></map>
+  </div>
+  <div class="bottom request-controls">
+    <ion-row>
+      <ion-col width-25>
+        <ion-fab>
+          <button ion-fab>
+            <ion-icon name="custom-circle" class="notime"></ion-icon>Legenda
+          </button>
+          <ion-fab-list side="top">
+            <ion-item>
+              <ion-icon name="custom-circle" class="verde"></ion-icon>Abriu a menos de duas horas
+            </ion-item>
+            <ion-item>
+              <ion-icon name="custom-circle" class="laranja"></ion-icon>Abriu a mais de duas horas
+            </ion-item>
+            <ion-item>
+              <ion-icon name="custom-circle" class="vermelho"></ion-icon>Faltando duas horas para fechar
+            </ion-item>
+            <ion-item>
+              <ion-icon name="custom-circle" class="notime"></ion-icon>Aberto, porém sem informação de horario
+            </ion-item>
+          </ion-fab-list>
+        </ion-fab>
+      </ion-col>
+      <ion-col width-50>
+        <ion-fab #fab>
+          <button ion-fab color="danger">
+            Região
+          </button>
+          <ion-fab-list side="top">
+            <ion-item (click)="map.searchPlace(800,'');closeFab(fab)">
+              Até 800
+            </ion-item>
+            <ion-item (click)="map.searchPlace(1300,'');closeFab(fab)">
+              Até 1300
+            </ion-item>
+            <ion-item (click)="map.searchPlace(1700,'');closeFab(fab)">
+              Até 1700
+            </ion-item>
+            <ion-item (click)="map.searchPlace(2000,'');closeFab(fab)">
+              Até 2000
+            </ion-item>
+          </ion-fab-list>
+        </ion-fab>
+      </ion-col>
+      <ion-col width-25>
+        <ion-fab #fabuteis>
+          <button ion-fab>
+            Uteis
+          </button>
+          <ion-fab-list side="top">
+            <ion-item (click)="map.searchPlace(2000,'gnv');closeFab(fabuteis)">
+              Posto com GNV
+            </ion-item>
+            <ion-item (click)="map.searchPlace(2000,'lavarapido');closeFab(fabuteis)">
+              Lava Rápido
+            </ion-item>
+            <ion-item (click)="map.searchPlace(2000,'sanitario');closeFab(fabuteis)">
+              Banheiro
+            </ion-item>
+          </ion-fab-list>
+        </ion-fab>
+      </ion-col>
+
+    </ion-row>
+  </div>
+</ion-content>

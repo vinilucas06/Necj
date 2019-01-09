@@ -1,0 +1,7 @@
+{
+  "name": "Necj",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
